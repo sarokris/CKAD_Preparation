@@ -1,0 +1,8 @@
+apiVersion: apps/V1
+kind: ReplicaSet
+metadata: #metadata about replicaset
+spec:
+  template: #Place to define the pod definitio
+  replicas: #Number of replicas to be created
+  selector: #Matching pods to be controlled by this replica
+    matchLables: #Place to match the pods that ReplicaSet to be maintained
