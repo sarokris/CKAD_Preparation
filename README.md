@@ -120,16 +120,18 @@ Root level attributes of every kubernetes definition files are below
     - if you dont want to create the definition file you can use the below command
  `kubectl create deployment webapp --image=kodekloud/webapp-color --replicas=3`
 
+ > You can then update the YAML file with the replicas or any other field before creating the deployment for creating the resources you can simply run `kubectl create -f <manifest-file>`
+
 * `kubectl run custom-nginx --image=nginx --port=8080`
     - This creates a new pod called custom-nginx using the nginx image and expose it on container port 8080
+
+* `kubectl run redis --image=redis:alpine --label="tier=db"`
+    - This creates a redis pod with given image and label in an imperative way
 
 * `kubectl create ns <name-space>`
 
 * `kubectl create deployment redis-deploy --image=redis --replicas=2 -n dev-ns`
     - Create a new deployment called redis-deploy in the dev-ns namespace with the redis image. It should have 2 replicas.
 
-* `kubectl run httpd --image=httpd:alpine --port=80 --expose`
+* `kubectl run httpd --image=httpd:alpine --port=80 --expose=true`
     - Create a pod called httpd using the image httpd:alpine in the default namespace. Next, create a service of type ClusterIP by the same name (httpd). The target port for the service should be 80.
-
-> You can then update the YAML file with the replicas or any other field before creating the deployment for creating the resources you can simply run `kubectl create -f <manifest-file>`
-
