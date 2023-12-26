@@ -1,0 +1,23 @@
+apiVersion: apps/V1
+kind: Deployment
+metadata:
+  name: my-resplicaset
+  labels:
+    app: myapp
+    type: backend
+spec:
+  template: 
+    # pod definition that you want to maintain by this replicaset can be given here
+    metadata:
+      name: my-app
+    labels:
+      app: my-app
+      type: backend
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx
+  replicas: 3 #Number of pods to be maintained by this replicaset
+  selector:
+    matchLables: 
+      type: backend #Labels matching with the pod definition will be maintained for scaling
