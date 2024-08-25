@@ -135,3 +135,8 @@ Root level attributes of every kubernetes definition files are below
 
 * `kubectl run httpd --image=httpd:alpine --port=80 --expose=true`
     - Create a pod called httpd using the image httpd:alpine in the default namespace. Next, create a service of type ClusterIP by the same name (httpd). The target port for the service should be 80.
+
+* `kubectl expose pod redis --port=6379 --name redis-service
+service/redis-service exposed`
+    - it Creates a service **redis-service** to expose the redis application within the cluster on port **6379**
+    - Pod redis is already created and creating a service to expose on port 6379
