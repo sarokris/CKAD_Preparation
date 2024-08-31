@@ -95,6 +95,18 @@ Root level attributes of every kubernetes definition files are below
 
 - **Namespaces in Use**: Common namespaces include kube-system, where Kubernetes system components are deployed, and kube-public, which is generally used for resources that need to be accessible across the whole cluster.
 
+### ConfigMaps
+
+* `kubectl get configmap` OR `kubectl get cm`
+    - list all the configmaps available in the default namespace
+* `kubectl describe cm <cm-name>`
+    - describe the configmap
+* `kubectl create cm <cm-name> --from-literal=APP_COLOR=RED --from-literal-APP_OTHER=disregard`
+  - create the configmap from the the literal
+* `kubectl create cm app-config --from-file=app.properties`
+  - create the configmap from the file
+
+
  #### Other useful commands 
 
 * `kubectl get namespaces` OR `kubectl get ns`
