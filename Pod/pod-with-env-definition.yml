@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: my-app
+  labels:
+    app: my-app
+    type: backend
+
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx
+      env: 
+        - name: PLAIN_KEY  # env plain key value
+          value: plain value
+        - name: CONFIG_KEY # env read from configmap : my-configmap
+          valueFrom:
+            configMapKeyRef:
+              name: my-configmap
+              key: MY_CONFIG_KEY
+        - name: SECRET_KEY # env read from secret : my-secret
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: MY_SECRET_KEY
+      envFrom:  #it will load all the environment variable configured in the configMap
+        - configMapRef:
+            name: my-configmap
+#The envFrom field is used to import all key-value pairs from the specified ConfigMap (my-configmap) as environment variables in the container.
+#Each key in the ConfigMap will become an environment variable in the container with the same name.
+
+          

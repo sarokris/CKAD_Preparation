@@ -20,7 +20,7 @@ Root level attributes of every kubernetes definition files are below
     - This is to delete the pod --force is an optional param here 
 
 *  `kubectl get pod <pod-name> -o yaml > pod-definition.yaml`
-    - You may extract the pod definition to a file using this command
+    - You may extract the pod definition to a file using this command and update the pods(delete and recreate)
 
 *  `kubectl edit pod <pod-name>`
     - You can utilize this command to modify the properties of the pod
@@ -82,6 +82,9 @@ Root level attributes of every kubernetes definition files are below
     - This can be used to create the deployment with the definition file
 * `kubectl create deployment <deployment-name> --image=<image-name> --replicas=6`
     - This command will create the deployment,replicaset and pods with desired count specified (you dont need to manually create deployment definition file)
+
+* `kubectl edit deployment my-deployment`
+    - If you are asked to edit a property of a POD part of a deployment you may do that simply by running the command.Since the pod template is a child of the deployment specification,  with every change the deployment will automatically delete and create a new pod with the new changes
 
 ### Namespaces
 > By using namespaces, you can partition resources, create separate environments, and prevent naming collisions between objects. They are commonly used to create isolation between different applications or teams using the same Kubernetes cluster.
