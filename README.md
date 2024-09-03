@@ -25,8 +25,12 @@ Root level attributes of every kubernetes definition files are below
 *  `kubectl edit pod <pod-name>`
     - You can utilize this command to modify the properties of the pod
 
+*  `kubectl replace --force -f <temp-edit-file-by-k8s>`
+    - with `kubectl edit pod my-pod` you may not edit few properties k8s will create a temp file with your changes if you tried. so you can use this to replace the pod with your edits
+
 *  `kubectl run <pod-name> --image=<image-name> --dry-run=client -o yaml > file_name.yaml`
     - Easiest way to create the pod definition file using exam environment once the file is ready you can use the next command to create the pod
+
 *  `kubectl create|apply  -f pod_definition_file.yaml`
     - This is to create pod using pod-definition-file
 
