@@ -112,6 +112,17 @@ Root level attributes of every kubernetes definition files are below
   - create the configmap from the the literal
 * `kubectl create cm app-config --from-file=app.properties`
   - create the configmap from the file
+### sample configmap file
+  ![Solution](./images/configMap.png)
+
+### How to refer the configmap or secrets from pod
+ ![Solution](./images/pod-with-env.png)
+
+ > you can go through the example file given here
+ [ConfigMap](./ConfigMap/config-map-definition.yaml) and 
+ [Pod that using enviroment](./Pod/pod-with-env-definition.yml)
+
+
 
 
  #### Other useful commands 
