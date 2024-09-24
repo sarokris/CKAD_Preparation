@@ -32,7 +32,7 @@ Root level attributes of every kubernetes definition files are below
     - Easiest way to create the pod definition file using exam environment once the file is ready you can use the next command to create the pod
 
 *  `kubectl create|apply  -f pod_definition_file.yaml`
-    - This is to create pod using pod-definition-file
+    - This is to create pod using pod-definition-file 
 
 ### ReplicaSet
 #### Replication controller is replaced by ReplicaSet
@@ -170,3 +170,14 @@ Root level attributes of every kubernetes definition files are below
 service/redis-service exposed`
     - it Creates a service **redis-service** to expose the redis application within the cluster on port **6379**
     - Pod redis is already created and creating a service to expose on port 6379
+
+### Filter by Selector
+
+* `kubectl get pods --selector env=dev`
+    - This is to filter all the pods which has label **env=prod**
+* `kubectl get pods --selector env=dev,bu=finance`
+    - If you want to filter based on multiple selector you can give them with comma separator
+* `kubectl get pods --selector env=prod,bu=finance --no-header | wc -l`
+    - This would be helpful if you are just looking for the count it will exactly list the count without header
+* `kubectl get all --selector env=prod,bu=finance`
+    - This can be used to list all the object which is labled as given including pods,replicasets and deployments
